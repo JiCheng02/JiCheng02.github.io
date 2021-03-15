@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jicheng02.github.io</id>
-    <title>Gridea11111</title>
-    <updated>2021-03-15T05:28:00.497Z</updated>
+    <title>JiCheng</title>
+    <updated>2021-03-15T05:35:34.140Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jicheng02.github.io"/>
     <link rel="self" href="https://jicheng02.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
     <logo>https://jicheng02.github.io/images/avatar.png</logo>
     <icon>https://jicheng02.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2021, Gridea11111</rights>
+    <rights>All rights reserved 2021, JiCheng</rights>
     <entry>
         <title type="html"><![CDATA[Servlet——Cookie]]></title>
         <id>https://jicheng02.github.io/post/servlet-cookie/</id>
         <link href="https://jicheng02.github.io/post/servlet-cookie/">
         </link>
         <updated>2021-03-15T05:26:28.000Z</updated>
+        <summary type="html"><![CDATA[<h2 id="cookie是什么">Cookie是什么</h2>
+<p>​	Cookie是浏览器提供的技术，可以将少量的数据存放到浏览器中，不需要通过网络传输，从而提高效率并且减轻服务器负担。但是由于信息存放在客户端中所以安全性较差。常见的记住密码就是通过Cookie实现的。<br>
+​	Servlet中有专门操作Cookie的类<strong>javax.servlet.http.Cookie</strong>，通过服务端的响应将数据发送给客户端，通过服务端的请求获取到Cookie数据。</p>
+]]></summary>
         <content type="html"><![CDATA[<h2 id="cookie是什么">Cookie是什么</h2>
-<p>​	Cookie是浏览器提供的技术，可以将少量的数据存放到浏览器中，不需要通过网络传输，从而提高效率并且减轻服务器负担。但是由于信息存放在客户端中所以安全性较差。常见的记住密码就是通过Cookie实现的。</p>
-<p>​	Servlet中有专门操作Cookie的类<strong>javax.servlet.http.Cookie</strong>，通过服务端的响应将数据发送给客户端，通过服务端的请求获取到Cookie数据。</p>
+<p>​	Cookie是浏览器提供的技术，可以将少量的数据存放到浏览器中，不需要通过网络传输，从而提高效率并且减轻服务器负担。但是由于信息存放在客户端中所以安全性较差。常见的记住密码就是通过Cookie实现的。<br>
+​	Servlet中有专门操作Cookie的类<strong>javax.servlet.http.Cookie</strong>，通过服务端的响应将数据发送给客户端，通过服务端的请求获取到Cookie数据。</p>
+<!-- more -->
 <h2 id="保存cookie数据">保存Cookie数据</h2>
 <pre><code class="language-Java">import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
