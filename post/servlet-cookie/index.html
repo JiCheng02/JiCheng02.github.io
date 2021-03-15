@@ -1,22 +1,98 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://jicheng02.github.io</id>
-    <title>Gridea11111</title>
-    <updated>2021-03-15T05:28:00.497Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://jicheng02.github.io"/>
-    <link rel="self" href="https://jicheng02.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
-    <logo>https://jicheng02.github.io/images/avatar.png</logo>
-    <icon>https://jicheng02.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2021, Gridea11111</rights>
-    <entry>
-        <title type="html"><![CDATA[Servlet——Cookie]]></title>
-        <id>https://jicheng02.github.io/post/servlet-cookie/</id>
-        <link href="https://jicheng02.github.io/post/servlet-cookie/">
-        </link>
-        <updated>2021-03-15T05:26:28.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="cookie是什么">Cookie是什么</h2>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Servlet——Cookie | Gridea11111</title>
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://jicheng02.github.io/favicon.ico?v=1615786045981">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://jicheng02.github.io/styles/main.css">
+
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://jicheng02.github.io">Gridea11111</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>Servlet——Cookie</h1>
+            <p class="article-meta">
+              2021-03-15
+              
+                <a href="https://jicheng02.github.io/tag/2DdDSs7YA/" class="badge ">
+                  Servlet
+                </a>
+              
+            </p>
+            
+            <div class="post-content">
+              <h2 id="cookie是什么">Cookie是什么</h2>
 <p>​	Cookie是浏览器提供的技术，可以将少量的数据存放到浏览器中，不需要通过网络传输，从而提高效率并且减轻服务器负担。但是由于信息存放在客户端中所以安全性较差。常见的记住密码就是通过Cookie实现的。</p>
 <p>​	Servlet中有专门操作Cookie的类<strong>javax.servlet.http.Cookie</strong>，通过服务端的响应将数据发送给客户端，通过服务端的请求获取到Cookie数据。</p>
 <h2 id="保存cookie数据">保存Cookie数据</h2>
@@ -150,6 +226,82 @@ public class Cookie05 extends HttpServlet {
 }
 </code></pre>
 <p>通过**setPath()<strong>方法可以设置Cookie的路径，例如</strong>cookie01.setPath(&quot;/&quot;);**代表根目录下的所有类都可以使用cookie01，**cookie03.setPath(&quot;/cookie/cookie02&quot;);**代表只有cookie项目下的cookie02类可以使用cookie03</p>
-]]></content>
-    </entry>
-</feed>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+        </div>
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://jicheng02.github.io/images/avatar.png?v=1615786045981" class="no-responsive avatar">
+    <div class="text-muted">温故而知新</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://jicheng02.github.io/post/servlet-cookie/">Servlet——Cookie</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://jicheng02.github.io/tag/2DdDSs7YA/" class="badge secondary">
+          Servlet
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://jicheng02.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+
+  </body>
+</html>
