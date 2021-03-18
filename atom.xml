@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jicheng02.github.io</id>
     <title>JiCheng</title>
-    <updated>2021-03-18T05:06:19.778Z</updated>
+    <updated>2021-03-18T05:06:43.974Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jicheng02.github.io"/>
     <link rel="self" href="https://jicheng02.github.io/atom.xml"/>
@@ -10,7 +10,7 @@
     <icon>https://jicheng02.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, JiCheng</rights>
     <entry>
-        <title type="html"><![CDATA[# Servlet——Session]]></title>
+        <title type="html"><![CDATA[Servlet——Session]]></title>
         <id>https://jicheng02.github.io/post/servlet-session/</id>
         <link href="https://jicheng02.github.io/post/servlet-session/">
         </link>
