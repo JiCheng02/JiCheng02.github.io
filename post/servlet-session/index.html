@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title># Servlet——Session | JiCheng</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://jicheng02.github.io/favicon.ico?v=1616043969277">
+<link rel="stylesheet" href="https://jicheng02.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="HttpSession
+Session有会话的意思，在Servlet中通过javax.servlet.http.HttpSession类来操作Session，Session跟Cookie一样用来存储各种信息，不同的是Cookie保存在浏览器..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://jicheng02.github.io">
+        <img src="https://jicheng02.github.io/images/avatar.png?v=1616043969277" class="site-logo">
+        <h1 class="site-title">JiCheng</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://jicheng02.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title"># Servlet——Session</h2>
+            <div class="post-date">2021-03-18</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="httpsession">HttpSession</h2>
+<p>Session有会话的意思，在Servlet中通过<strong>javax.servlet.http.HttpSession</strong>类来操作Session，Session跟Cookie一样用来存储各种信息，不同的是Cookie保存在浏览器中，Session保存在服务端中。因为Cookie只能存字符串，所以我们要存一些对象的时候就可以使用Session。</p>
+<!-- more -->
+<h2 id="session基本操作">Session基本操作</h2>
+<p>使用Session之前我们要先获取一个Session对象</p>
+<pre><code class="language-Java">HttpSession session = req.getSession();
+</code></pre>
+<p>通过request对象可以直接获取Session，如果Session对象不存在则会创建一个Session对象。如果我们向服务器发送请求的同时访问了Session，服务器会查看是否从客户端传回一个名为JSESSIONID的Cookie，如果没有，服务器会创建一个新的Session对象；如果传回了名为JSESSIONID的Cookie，存的是Session的唯一标识符id，那么服务器会去查找是否有id为这个值的Session，如果有就说明之前访问过这个Session，直接将这个Session返回，实现数据共享，如果没有找到就会新建一个Session对象返回</p>
+<p>我们还可以通过各种方法获取Session的id，创建时间，最后一次访问的时间，是否为新创建的Session</p>
+<pre><code class="language-java">//获取session会话唯一标识
+String id = session.getId();
+System.out.println(id);
+
+//获取session创建时间
+System.out.println(session.getCreationTime());
+
+//获取session最后一次访问时间
+System.out.println(session.getLastAccessedTime());
+
+//获取session是否是新的对象，返回true为新创建的Session，false则不是
+System.out.println(session.isNew());
+</code></pre>
+<h2 id="session域对象">Session域对象</h2>
+<p>Session跟Request有类似的方法，可以设置Session属性来实现Servlet对象之间通讯。</p>
+<p>新建一个Session02类，重写service()方法后补充以下代码</p>
+<pre><code class="language-Java">//获取Session对象
+HttpSession session = req.getSession();
+
+//设置Session属性
+session.setAttribute(&quot;name&quot;,&quot;zhangsan&quot;);
+session.setAttribute(&quot;pwd&quot;,&quot;123456&quot;);
+</code></pre>
+<p>新建一个Session04类，重写service()方法后补充以下代码</p>
+<pre><code class="language-Java">HttpSession session = req.getSession();
+System.out.println(session.getAttribute(&quot;name&quot;));
+System.out.println(session.getAttribute(&quot;pwd&quot;));
+</code></pre>
+<p>然后先访问Session02，再访问Session04，得到如下结果</p>
+<figure data-type="image" tabindex="1"><img src="https://pic-bed-1300979161.cos.ap-beijing.myqcloud.com/img/image-20210318112220234.png" alt="image-20210318112220234" loading="lazy"></figure>
+<p>成功实现类与类之间通讯</p>
+<h2 id="session销毁">Session销毁</h2>
+<p>Session有自己的存活时间，因为Session是服务端行为，可以在Tomcat的配置文件中更改。如果中间有对Session操作，比如刷新页面等，Session会重新计时</p>
+<p>打开Tomcat根目录下的conf文件夹，打开web.xml</p>
+<pre><code class="language-xml">&lt;session-config&gt;
+        &lt;session-timeout&gt;30&lt;/session-timeout&gt;
+&lt;/session-config&gt;
+</code></pre>
+<p>Session默认存活时间为30分钟，一般不在配置文件里更改存活时间，有需要的话可以通过**setMaxInactiveInterval()**方法修改存活时间</p>
+<pre><code class="language-Java">HttpSession session = req.getSession();
+
+//设置Session存活时间30秒
+session.setMaxInactiveInterval(30);
+</code></pre>
+<p>也可以通过**getMaxInactiveInterval()**方法来获取Session当前设置的存活时间</p>
+<pre><code class="language-Java">System.out.println(&quot;Session存活时间为： &quot; + session.getMaxInactiveInterval());
+</code></pre>
+<p>如果想立即销毁Session，可以通过**invalidate()**方法将Session立即销毁。正如刚开始所说Session要依赖Cookie，所以当浏览器关闭时因为Cookie默认关闭浏览器失效，所以关闭浏览器时Cokkie失效的同时Session也会被销毁。最后，当服务器关闭时，Session也会销毁</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://jicheng02.github.io/post/servlet-cookie/">
+                  <h3 class="post-title">
+                    Servlet——Cookie
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+
+  </body>
+</html>
