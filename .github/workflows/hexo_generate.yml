@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout source
-      uses: actions/checkout@v4
+      uses: actions/checkout@v2
       with:
         submodules: 'true'
     - name: Setup Node.js
@@ -17,8 +17,18 @@ jobs:
         node-version: '14'
     - name: Setup hexo environment
       run: |
-        npm install -g hexo-cli
-        npm ci
+        export TZ='Asia/Shanghai'
+        npm install hexo-cli -g
+    - name: 缓存 Hexo
+      uses: actions/cache@v1
+      id: cache
+      with:
+        path: node_modules
+        key: ${{runner.OS}}-${{hashFiles('**/package-lock.json')}}
+    - name: 安装依赖
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: |
+        npm install --save
     - name: Generate pages
       run: |
         hexo generate
