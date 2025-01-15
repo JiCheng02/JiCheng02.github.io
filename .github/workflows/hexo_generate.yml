@@ -17,12 +17,8 @@ jobs:
         node-version: '22'
     - name: Setup hexo environment
       run: |
-        export TZ='Asia/Shanghai'
-        npm install -g hexo-cli --force
-    - name: 安装依赖
-      run: |
-        rm -rf node_modules
-        npm install -g
+        npm install -g hexo-cli
+        npm ci
     - name: Generate pages
       run: |
         hexo generate
