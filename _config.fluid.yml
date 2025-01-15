@@ -16,7 +16,7 @@
 # Global
 #---------------------------
 
-# 用于浏览器标签的图标
+# 用于浏览器标签
 # Icon for browser tab
 favicon: /img/fluid.png
 
