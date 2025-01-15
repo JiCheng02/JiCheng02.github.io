@@ -17,9 +17,9 @@ jobs:
         node-version: '14'
     - name: Setup hexo environment
       run: |
-        npm install -g hexo-cli -f
+        npm install -g hexo-cli
         npm ci
     - name: Generate pages
       run: |
-        npx hexo generate
+        hexo generate
         ls -R public/
