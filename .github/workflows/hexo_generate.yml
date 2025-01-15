@@ -24,6 +24,5 @@ jobs:
         npm install -g
     - name: Generate pages
       run: |
-        hexo clean
         hexo generate
         ls -R public/
