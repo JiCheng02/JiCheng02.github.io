@@ -31,5 +31,6 @@ jobs:
         npm install --save
     - name: Generate pages
       run: |
+        hexo clean
         hexo generate
         ls -R public/
